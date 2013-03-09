@@ -10,6 +10,7 @@ function memory()
 		backgroundColor:'#fff'
 	});
 	
+	var date = new Date();
 	var rowcount = 10;
 	var rows = [];
 	for( var i=0 ; i<rowcount ; i++ )
@@ -20,6 +21,26 @@ function memory()
 			
 		});
 		
+		var month = date.getMonth() + 1;
+		var day = date.getDate();
+	
+		//! 日付
+		var labDay = Ti.UI.createLabel({
+			text:month+"月"+day+"日",
+			top:'0%',
+			left:'5%',
+		});
+		//! 回数
+		var labCount = Ti.UI.createLabel({
+			text:parseInt(Math.random()*10).toString() + "回",
+			top:'50%',
+			left:'5%',
+		});
+		
+		row.add( labDay );
+		row.add( labCount );
+		
+		date.setDate( day + 1 );
 		rows.push( row );
 	}
 	
